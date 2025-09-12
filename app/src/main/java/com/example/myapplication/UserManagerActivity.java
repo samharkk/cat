@@ -16,7 +16,7 @@ import java.util.List;
 public class UserManagerActivity extends AppCompatActivity {
 
     private ListView lvUsers;
-    private Button btnAddUser;
+    private Button btnAddUser, btnBack; // 添加返回按钮
     private List<String> userList;
     private ArrayAdapter<String> adapter;
 
@@ -32,6 +32,10 @@ public class UserManagerActivity extends AppCompatActivity {
 
         lvUsers = findViewById(R.id.lv_users);
         btnAddUser = findViewById(R.id.btn_add_user);
+        btnBack = findViewById(R.id.btn_back); // 添加这行
+
+        // 返回按钮点击事件
+        btnBack.setOnClickListener(v -> finish());
 
         // 初始化用户列表
         userList = new ArrayList<>();

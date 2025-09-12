@@ -1,39 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center">
+    android:padding="20dp"
+    android:background="#F5F5F5">
 
-    <TextView
-        android:id="@+id/tv_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="得分: 0"
-        android:textSize="24sp"
-        android:layout_marginBottom="16dp" />
-
-    <TextView
-        android:id="@+id/tv_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="点击开始游戏"
-        android:textSize="18sp"
-        android:layout_marginBottom="32dp" />
-
-    <Button
-        android:id="@+id/btn_start"
+    <!-- 顶部信息区 -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="开始游戏"
-        android:layout_marginBottom="16dp" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
 
-    <Button
-        android:id="@+id/btn_click"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:text="点我!"
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="得分: 0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#2E7D32"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="60秒挑战"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#D32F2F"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <!-- 等级信息 -->
+    <TextView
+        android:id="@+id/tv_level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="等级 1"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#1976D2"
+        android:layout_marginBottom="15dp" />
+
+    <!-- 指令区域 -->
+    <TextView
+        android:id="@+id/tv_instruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="准备开始反应速度挑战!"
         android:textSize="20sp"
-        android:enabled="false" />
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:padding="15dp"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="30dp"
+        android:elevation="2dp" />
+
+    <!-- 颜色按钮区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="30dp">
+
+        <!-- 第一行按钮 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp">
+
+            <Button
+                android:id="@+id/btn_red"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:text="红"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:elevation="4dp" />
+
+            <Button
+                android:id="@+id/btn_green"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:text="绿"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:elevation="4dp" />
+        </LinearLayout>
+
+        <!-- 第二行按钮 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_blue"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:text="蓝"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:elevation="4dp" />
+
+            <Button
+                android:id="@+id/btn_yellow"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:text="黄"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:elevation="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 填充剩余空间 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 底部按钮区 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:text="返回"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:background="#FF5722"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:text="开始游戏"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:background="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
 
 </LinearLayout>

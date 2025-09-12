@@ -3,14 +3,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="32dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="#f8f9fa">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="猫咪社交"
-        android:textSize="24sp"
+        android:text="🐱 猫咪社交"
+        android:textSize="28sp"
         android:textStyle="bold"
+        android:textColor="#2c3e50"
         android:layout_marginBottom="32dp" />
 
     <EditText
@@ -18,6 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="用户名"
+        android:padding="16dp"
+        android:background="@drawable/edit_text_background"
         android:layout_marginBottom="16dp" />
 
     <EditText
@@ -26,46 +30,99 @@
         android:layout_height="wrap_content"
         android:hint="密码"
         android:inputType="textPassword"
+        android:padding="16dp"
+        android:background="@drawable/edit_text_background"
         android:layout_marginBottom="24dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="选择头像:"
+        android:text="🎨 选择你的头像:"
         android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#2c3e50"
         android:layout_marginBottom="8dp" />
 
     <RadioGroup
         android:id="@+id/rg_avatar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="32dp">
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
 
         <RadioButton
             android:id="@+id/rb_cat1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="猫咪1"
+            android:layout_weight="1"
+            android:text="🐱 猫咪1"
+            android:gravity="center"
             android:checked="true" />
 
         <RadioButton
             android:id="@+id/rb_cat2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="猫咪2" />
+            android:layout_weight="1"
+            android:text="😸 猫咪2"
+            android:gravity="center" />
 
         <RadioButton
             android:id="@+id/rb_cat3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="猫咪3" />
+            android:layout_weight="1"
+            android:text="😻 猫咪3"
+            android:gravity="center" />
+
     </RadioGroup>
 
+    <!-- 头像预览区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#ffffff"
+        android:padding="20dp"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预览:"
+            android:textSize="14sp"
+            android:textColor="#7f8c8d"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:id="@+id/iv_avatar_preview"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/cat1"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_background" />
+
+    </LinearLayout>
+
+    <!-- 进度条 -->
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 登录按钮 -->
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="登录" />
+        android:layout_height="56dp"
+        android:text="登录"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#e74c3c"
+        android:textColor="#ffffff" />
 
 </LinearLayout>

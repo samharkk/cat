@@ -2,13 +2,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#f8f9fa"
     android:padding="24dp">
 
+    <!-- 用户信息区域 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:background="#ffffff"
+        android:padding="20dp"
         android:layout_marginBottom="32dp">
 
         <com.example.myapplication.CircleImageView
@@ -16,44 +20,85 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/cat1"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginEnd="20dp" />
 
-        <TextView
-            android:id="@+id/tv_welcome"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="欢迎!"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="欢迎!"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#2c3e50" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="探索猫咪世界吧~"
+                android:textSize="14sp"
+                android:textColor="#7f8c8d"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_chat"
+    <!-- 功能按钮区域 -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="猫咪聊天"
-        android:layout_marginBottom="16dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_user_manager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="用户管理"
-        android:layout_marginBottom="16dp" />
+        <Button
+            android:id="@+id/btn_chat"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="💬 猫咪聊天"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#3498db"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/btn_game"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="小游戏"
-        android:layout_marginBottom="32dp" />
+        <Button
+            android:id="@+id/btn_user_manager"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="👥 用户管理"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#2ecc71"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="16dp" />
 
+        <Button
+            android:id="@+id/btn_game"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="🎮 小游戏"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#f39c12"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="32dp" />
+
+    </LinearLayout>
+
+    <!-- 退出登录按钮 -->
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="退出登录"
-        android:backgroundTint="#FF5722" />
+        android:layout_height="56dp"
+        android:text="🚪 退出登录"
+        android:textSize="16sp"
+        android:backgroundTint="#e74c3c"
+        android:textColor="#ffffff" />
 
 </LinearLayout>

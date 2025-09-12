@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +19,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private ListView lvChat;
     private EditText etMessage;
-    private Button btnSend;
+    private Button btnSend, btnBack;
     private List<String> messageList;
     private ArrayAdapter<String> adapter;
     private String username;
@@ -30,8 +32,7 @@ public class ChatActivity extends AppCompatActivity {
         // 设置标题栏
         try {
             if (getSupportActionBar() != null) {
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                getSupportActionBar().setTitle("猫咪聊天");
+                getSupportActionBar().hide(); // 隐藏默认标题栏，使用自定义的
             }
         } catch (Exception e) {
             // 忽略ActionBar错误
@@ -55,9 +56,10 @@ public class ChatActivity extends AppCompatActivity {
         lvChat = findViewById(R.id.lv_chat);
         etMessage = findViewById(R.id.et_message);
         btnSend = findViewById(R.id.btn_send);
+        btnBack = findViewById(R.id.btn_back);
 
         // 检查控件是否找到
-        if (lvChat == null || etMessage == null || btnSend == null) {
+        if (lvChat == null || etMessage == null || btnSend == null || btnBack == null) {
             Toast.makeText(this, "界面加载失败", Toast.LENGTH_SHORT).show();
             finish();
             return;
@@ -74,30 +76,62 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void setupClickListeners() {
-        btnSend.setOnClickListener(v -> {
-            String message = etMessage.getText().toString().trim();
-            if (!message.isEmpty()) {
-                // 添加用户消息
-                messageList.add("👤 " + username + ": " + message);
+        // 返回按钮点击事件
+        btnBack.setOnClickListener(v -> finish());
 
-                // 添加猫咪回复
-                String[] replies = {
-                        "喵~ 我听到了！",
-                        "有趣！继续说~",
-                        "喵喵喵！",
-                        "我也这么想！",
-                        "真的吗？好棒！"
-                };
-                String reply = replies[(int)(Math.random() * replies.length)];
-                messageList.add("🐱 喵喵: " + reply);
+        // 发送按钮点击事件
+        btnSend.setOnClickListener(v -> sendMessage());
 
-                adapter.notifyDataSetChanged();
-                etMessage.setText("");
-
-                // 滚动到最新消息
-                lvChat.smoothScrollToPosition(messageList.size() - 1);
+        // 输入框回车键发送消息
+        etMessage.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_SEND ||
+                    (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+                sendMessage();
+                return true;
             }
+            return false;
         });
+    }
+
+    private void sendMessage() {
+        String message = etMessage.getText().toString().trim();
+
+        // 检查消息是否为空
+        if (message.isEmpty()) {
+            Toast.makeText(this, "请输入消息内容", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // 添加用户消息
+        messageList.add("👤 " + username + ": " + message);
+
+        // 生成猫咪回复
+        String[] replies = {
+                "喵~ 我听到了！",
+                "有趣！继续说~",
+                "喵喵喵！",
+                "我也这么想！",
+                "真的吗？好棒！",
+                "哈哈，你说得对呢~",
+                "让我想想... 嗯！",
+                "太棒了！继续聊吧~",
+                "喵呜~ 好开心！"
+        };
+
+        String reply = replies[(int)(Math.random() * replies.length)];
+        messageList.add("🐱 喵喵: " + reply);
+
+        // 更新列表
+        adapter.notifyDataSetChanged();
+
+        // 清空输入框
+        etMessage.setText("");
+
+        // 滚动到最新消息
+        lvChat.smoothScrollToPosition(messageList.size() - 1);
+
+        // 显示发送成功提示
+        Toast.makeText(this, "消息已发送", Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -4,6 +4,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- 顶部导航栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#3498db"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="← 返回"
+            android:textSize="14sp"
+            android:backgroundTint="#2980b9"
+            android:textColor="#ffffff"
+            android:minWidth="80dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="💬 猫咪聊天"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <ListView
         android:id="@+id/lv_chat"
         android:layout_width="match_parent"
@@ -25,13 +56,19 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="输入消息..."
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            android:inputType="text"
+            android:imeOptions="actionSend"
+            android:maxLines="3"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background" />
 
         <Button
             android:id="@+id/btn_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="发送" />
+            android:text="发送"
+            android:backgroundTint="#3498db" />
 
     </LinearLayout>
 
