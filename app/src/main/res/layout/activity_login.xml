@@ -1,128 +1,179 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="32dp"
-    android:gravity="center"
     android:background="#f8f9fa">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🐱 猫咪社交"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#2c3e50"
-        android:layout_marginBottom="32dp" />
-
-    <EditText
-        android:id="@+id/et_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="用户名"
-        android:padding="16dp"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginBottom="16dp" />
-
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="密码"
-        android:inputType="textPassword"
-        android:padding="16dp"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginBottom="24dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🎨 选择你的头像:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#2c3e50"
-        android:layout_marginBottom="8dp" />
-
-    <RadioGroup
-        android:id="@+id/rg_avatar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
-
-        <RadioButton
-            android:id="@+id/rb_cat1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="🐱 猫咪1"
-            android:gravity="center"
-            android:checked="true" />
-
-        <RadioButton
-            android:id="@+id/rb_cat2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="😸 猫咪2"
-            android:gravity="center" />
-
-        <RadioButton
-            android:id="@+id/rb_cat3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="😻 猫咪3"
-            android:gravity="center" />
-
-    </RadioGroup>
-
-    <!-- 头像预览区域 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:background="#ffffff"
-        android:padding="20dp"
-        android:layout_marginBottom="24dp">
+        android:padding="32dp">
+
+        <!-- 应用标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="猫咪世界"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#2c3e50"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="欢迎来到猫咪的世界~"
+            android:textSize="16sp"
+            android:textColor="#7f8c8d"
+            android:gravity="center"
+            android:layout_marginBottom="32dp" />
+
+        <!-- 登录表单 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#ffffff"
+            android:padding="24dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户名"
+                android:textSize="16sp"
+                android:textColor="#2c3e50"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="请输入用户名"
+                android:background="@drawable/edit_text_background"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码"
+                android:textSize="16sp"
+                android:textColor="#2c3e50"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:background="@drawable/edit_text_background"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 头像选择 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择头像"
+                android:textSize="16sp"
+                android:textColor="#2c3e50"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:id="@+id/rg_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/rb_cat1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="黑猫"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/rb_cat2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="橘猫" />
+
+                <RadioButton
+                    android:id="@+id/rb_cat3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="花猫" />
+
+            </RadioGroup>
+
+            <!-- 头像预览 -->
+            <ImageView
+                android:id="@+id/iv_avatar_preview"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/cat1"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+
+        <!-- 进度条 -->
+        <ProgressBar
+            android:id="@+id/pb_loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="预览:"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 按钮区域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="登录"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="#3498db"
+                android:textColor="#ffffff"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="注册新用户"
+                android:textSize="16sp"
+                android:backgroundTint="#2ecc71"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+        <!-- 提示信息 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提示: 默认用户: 小明/小红/小猫，密码都是: 123456"
             android:textSize="14sp"
             android:textColor="#7f8c8d"
-            android:layout_marginBottom="8dp" />
-
-        <ImageView
-            android:id="@+id/iv_avatar_preview"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/cat1"
-            android:scaleType="centerCrop"
-            android:background="@drawable/circle_background" />
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
+            android:background="#ecf0f1" />
 
     </LinearLayout>
 
-    <!-- 进度条 -->
-    <ProgressBar
-        android:id="@+id/pb_loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginBottom="16dp" />
-
-    <!-- 登录按钮 -->
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="登录"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="#e74c3c"
-        android:textColor="#ffffff" />
-
-</LinearLayout>
+</ScrollView>
